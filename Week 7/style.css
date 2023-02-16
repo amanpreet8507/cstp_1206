@@ -1,0 +1,29 @@
+.container {
+    display: grid;
+    grid-template-columns: 33%, 33%, 33%, 33%;
+    gap:15px;
+}
+
+.movieInfo{
+    /* SET PROPERTIES FOR IMAGEINFO DIV */
+    height: ;
+    width: ;
+    
+    display: grid;
+}
+
+.moviePoster {
+    /* set height and width of movie image */
+}
+
+.titleAndYear{
+
+}
+
+.des{
+
+}
+
+.gen{
+
+}

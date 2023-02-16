@@ -1,0 +1,44 @@
+.body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    
+
+}
+ 
+ .container{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.flag {
+    border: 1px solid black;
+    height: 120px;
+    display: flex;
+    justify-content: full-width;
+    padding:10px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: antiquewhite;
+    align-items: center;
+}
+
+.flagsimg{
+    width: 300px;
+    height: 100px;
+
+}
+
+.cname{
+    padding: 10px;
+    font-stretch: expanded;
+    
+}
+.pop {
+    padding: 10px;
+    font-style: italic;
+}
+
+
