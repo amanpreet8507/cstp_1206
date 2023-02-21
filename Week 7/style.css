@@ -1,29 +1,53 @@
+body {
+    margin: 0;
+}
+
+#search-section {
+
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+}
+
 .container {
     display: grid;
-    grid-template-columns: 33%, 33%, 33%, 33%;
+    grid-template-columns: 25%, 25%, 25%, 25%;
     gap:15px;
 }
 
-.movieInfo{
-    /* SET PROPERTIES FOR IMAGEINFO DIV */
-    height: ;
-    width: ;
-    
-    display: grid;
+.movieInfo {
+    width: 700px;
 }
 
-.moviePoster {
-    /* set height and width of movie image */
+#search-section div button{
+    border-radius: 20px;
+    background-color: blue;
+    color: white;
 }
+#movieInfo-section{
+    background: rgb(243, 242, 242);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+ .moviePoster {
+    width: 100%;
+    margin-bottom: 10px;
+} 
 
 .titleAndYear{
-
+    
 }
 
 .des{
-
+    
 }
 
 .gen{
-
+    
 }
