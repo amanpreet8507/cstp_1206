@@ -17,6 +17,7 @@ async function getGenre(){
     let genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}`);
     let genWithJSON = await genre.json();
     let genres = genWithJSON.genres;
+    console.log(genres)
     return genres;
    
     
