@@ -42,7 +42,6 @@ const fetchImageByKeyword = async () => {
 
     const keyword = document.getElementById('searched-keyword');
 
-    // Fix the search bar, when you search for soimething remove it as well.
     try {
         return await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${keyword.value}`);
     } catch(error) {
@@ -70,7 +69,6 @@ const generateUI =  (arrayOfImages) => {
         <p>${imageObject.overview}</p>
         <p>${genres}</p>
         `
-    
     
         photoSection.appendChild(imageContainer);
     })
