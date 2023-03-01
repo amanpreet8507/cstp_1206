@@ -1,17 +1,24 @@
 const APIKEY = "1b977ff48db9f4e31e40912f11c4ea6b";
 
-//"https://www.themoviedb.org/1b977ff48db9f4e31e40912f11c4ea6b";
-//https://api.themoviedb.org/3/search/movie?${APIKEY}&query=man
 
+async  function getImageDataByKeyword(){
+    let data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${keyword.value}`);
+    let dataWithJSON = await data.json();
+    let finalOutputArray = dataWithJSON.results; //.data check it in consloe 
+    //console.log(finalOutputArray);
+    createUI(finalOutputArray);
+}
 
-async function getMovieInfo() {
-    let data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=war`);
+async function getMovieInfo() { //GET
+    let data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}`);
     let dataWithJSON = await data.json();
     let finalOutputArray = dataWithJSON.results; //.data check it in consloe 
     //console.log(finalOutputArray);
     createUI(finalOutputArray);
 
 }
+
+
 
 async function getGenre(){
     let genre = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}`);
