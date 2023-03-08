@@ -81,6 +81,45 @@ app.delete('/students/delete/:id', (req, res) => {
 })
 // APP DELETE ENDS****************************************************************
 
+// PUT API STARTS****************************************************************
+
+app.put('/students/update/:id',(req, res) => {
+    const studentID = req.params.id;
+    const updateStudentData = req.body;
+
+    studentList = studentList.map((data) => {
+        if(data.id == studentID) {
+            data = updateStudentData;
+        }
+        return data;
+    })
+
+    res.send(studentList);
+})
+// PUT API ENDS*******************************************************************
+
+// GET API  FOR GETTING INDIVIDUAL STUDENT STARTS *******************************************************************
+app.get('/students/:id',(req, res) => {
+    const studentID = req.params.id;
+
+    let foundStudent = studentList.find((student) => {
+        if(student.id == studentID) {
+            return student;
+        }
+    })
+
+    //What if the student was wrong
+    if(foundStudent) {
+        res.send(foundStudent);
+    } else {
+        "The student is not found ";
+    }
+})
+
+// GET API  FOR GETTING INDIVIDUAL STUDENT ENDS *******************************************************************
+
+
+//LISTENING TO SERVE ON THIS PORT - 4000
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
 
