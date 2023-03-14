@@ -25,8 +25,7 @@ async function getGenre(){
     let genWithJSON = await genre.json();
     let genres = genWithJSON.genres;
     return genres;
-   
-    
+
 }
 
 async function matchGenre(array){
@@ -92,4 +91,6 @@ for(let i = 0; i < finalArray.length; i++){
 
     }
 }
+
 getMovieInfo();
+

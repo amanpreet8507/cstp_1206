@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "nodejs",
   "version": "1.0.0",
   "description": "Introduction to Node.js",
@@ -13,5 +14,18 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
+=======
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+>>>>>>> 31c62bbf9231cfe92abbed22e89f7ee60fac30d8
   }
 }
