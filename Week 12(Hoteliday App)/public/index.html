@@ -18,19 +18,42 @@
 
 <body>
     <div class="container">
+        <header>
+            <style>
+              #intro {
+                background-image: url("https://images.unsplash.com/photo-1667382988243-6a1e5e85224e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fGhvdGVsJTIwcGhvdG9zfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60");
+                height: 100vh;
+              }
+        
+              /* Height for devices larger than 576px */
+              @media (min-width: 992px) {
+                #intro {
+                  margin-top: -58.59px;
+                }
+              }
+        
+              .navbar .nav-link {
+                color: #fff !important;
+              }
+            </style>
+        
+            <!-- Background image -->
+            <div id="intro" class="bg-image shadow-2-strong">
+              <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+                <div class="container d-flex align-items-center justify-content-center text-center h-100">
+                  <div class="text-white">
+                    <h1 class="mb-3">Georgia Hotel Booking</h1>
+                    <a class="btn btn-outline-light btn-lg m-2" href="guest/guest-login.html" role="button"
+                      rel="nofollow" target="_blank">Guest Login</a>
+                    <a class="btn btn-outline-light btn-lg m-2" href="admin/admin-signup.html" target="_blank"
+                      role="button">Admin</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Background image -->
+          </header>
        
-        <div class="row">
-            
-            <div class="col-md-6">
-               <div class="d-flex flex-column justify-content-center align-items-center h-100">
-                <a class="btn btn-primary mb-4 w-25" href="guest/guest-login.html">Guest Login</a>
-                <a class="btn btn-secondary w-25" href="user/user-signup.html">ADMIN</a>  
-               </div>
-            </div>
-
-            <div class="col-md-6">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="image link">
-            </div>
         </div>
     
     </div>

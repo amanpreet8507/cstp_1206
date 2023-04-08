@@ -8,7 +8,7 @@ function getHotelInfo() {
 
     if (!userInfo) {
         alert("You need to login to access this page!");
-        window.location.href = "/user/user-login.html";
+        window.location.href = "/admin/admin-login.html";
     }
     hotelName.innerHTML = `Hey ${userInfo.name}`;
 }

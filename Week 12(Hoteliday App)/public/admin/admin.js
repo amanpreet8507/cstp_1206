@@ -27,7 +27,7 @@ const loginFormSubmit = (event) => {
             alertBox.innerHTML = `<div class="alert alert-success" role="alert">${data.message}</div>`;
       
             setTimeout(() => {
-                window.location.href = '/user/user-home.html';
+                window.location.href = '/admin/admin-home.html';
             }, 2000);
         } else {
             alertBox.innerHTML = `<div class="alert alert-danger " role="alert">${data.message}</div>`;
@@ -66,7 +66,7 @@ const signupForm = (event) => {
         alertBox.innerHTML = `<div class="alert alert-success" role="alert">${data.message}</div>`;
       
         setTimeout(() => {
-            window.location.href = '/user/userlogin.html';
+            window.location.href = '/admin/adminlogin.html';
         }, 2000);
 
     }).catch((error) => {

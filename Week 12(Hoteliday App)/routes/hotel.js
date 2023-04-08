@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const HotelController = require('../controller/hotel')
 
-router.get('/', HotelController.getAllHotels);
+router.post('/', HotelController.getAllRoomTypes);
 
 
-router.put('/', HotelController.updateHotel);
+// router.put('/', HotelController.updateHotel);
 
 
-router.delete('/:id', HotelController.deleteHotel);
+// router.delete('/:id', HotelController.deleteHotel);
 
 
-router.post('/', HotelController.createHotel);
+// router.post('/', HotelController.createHotel);
 
 
 

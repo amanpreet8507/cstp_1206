@@ -1,18 +1,23 @@
 const baseUrl = 'http://localhost:2400/api/v1';
 
-const loginFormSubmit = (event) => {
+
+const  searchHotel = (event) => {
     event.preventDefault();
 
-    const email = document.getElementById('email');
+    const rooms = document.getElementById('rooms');
+    const adults = document.getElementById('adults');
+    const children = document.getElementById('children')
     
 
-    const guest = {
-        email: email.value,
+    const data = {
+        rooms: rooms.value,
+        adults: adults.value,
+        children: children.value
     }
 
-    fetch(`${baseUrl}/users/login`, {
+    fetch(`${baseUrl}/guest/search`, {
         method: "POST",
-        body: JSON.stringify(guest),
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': "application/json"
         }
@@ -25,7 +30,7 @@ const loginFormSubmit = (event) => {
             alertBox.innerHTML = `<div class="alert alert-success" role="alert">${data.message}</div>`;
       
             setTimeout(() => {
-                window.location.href = '/guest/search-hotel.html';
+                window.location.href = '/guest/rooms.html';
             }, 2000);
         } else {
             alertBox.innerHTML = `<div class="alert alert-danger " role="alert">${data.message}</div>`;
@@ -35,4 +40,3 @@ const loginFormSubmit = (event) => {
     })
 
 }
-loginFormSubmit();

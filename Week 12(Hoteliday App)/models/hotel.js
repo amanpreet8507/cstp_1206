@@ -1,19 +1,16 @@
 const mongoose = require("mongoose")
 const HotelSchema = mongoose.Schema({
-    name: {
-        type: String,
+    rooms: {
+        type: Number,
         required: true
     },
-    city: {
-        type: String,
+    adults: {
+        type: Number,
         required: true
     },
-    state: {
-        type: String,
+    children: {
+        type: Number,
         required: true
-    },
-    rating: {
-        type: Number
     }
     
 },{ 
