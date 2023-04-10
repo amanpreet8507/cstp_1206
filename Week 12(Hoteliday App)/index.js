@@ -7,7 +7,10 @@ const PORT = 2400;
 const app = express();
 
 const userRoutes = require('./routes/user');
+const employeeRoutes = require('./routes/employee');
 const hotelRoutes = require('./routes/hotel')
+
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
@@ -27,11 +30,14 @@ mongoose.connect(process.env.MONGODB_URL).then((response) => {
  })
 
 
-// USERS 
+// Admin 
 app.use('/api/v1/users', userRoutes);
 
-//Hotels
-app.use('/api/v1/hotels', hotelRoutes);
+//Employees
+app.use('/api/v1/employee', employeeRoutes);
+
+//Hotel
+app.use('/api/v1/hotel', hotelRoutes);
 
 
 app.listen(PORT, () => {

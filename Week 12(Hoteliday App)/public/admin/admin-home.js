@@ -1,53 +1,104 @@
-const hotelName = document.getElementById('hotel-name');
-const allHotels = document.getElementById('all-hotels');
 const baseUrl = 'http://localhost:2400/api/v1';
-const token = localStorage.getItem('access-token');
+const hotelTable = document.querySelector('#hotelTableBody');
+const employeeList = document.querySelector("#employeeList");
 
-function getHotelInfo() {
-    const userInfo = JSON.parse(localStorage.getItem('current-user'));
+let employees = [];
+let newHotel = {};
 
-    if (!userInfo) {
-        alert("You need to login to access this page!");
-        window.location.href = "/admin/admin-login.html";
-    }
-    hotelName.innerHTML = `Hey ${userInfo.name}`;
-}
+const submitForm = (event) => {
+    event.preventDefault();
 
+    const name = document.getElementById('name');
+    const address = document.getElementById('address');
+    newHotel.name = name.value;
+    newBook.address = address.value;
 
-const getAllHotels = async () => {
-    try {
-        const response = await fetch(`${baseUrl}/posts`, {
-            method: "GET",
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-
-        const responseWithJson = await response.json();
-        renderPostUI(responseWithJson.data);
-        console.log(responseWithJson);
-    } catch (error) {
+    fetch(`${baseUrl}/hotel`, {
+        method: "POST",
+        body: JSON.stringify(newHotel),
+        headers: {
+            'Content-Type': "application/json"
+        }
+    }).then((response) => {
+        return response.json();
+    }).then((data) => {
+        alert(data.message);
+        getAllBooks();
+    }).catch((error) => {
         console.log(error);
-    }
+    })
 }
 
-const renderPostUI = (hotels) => {
-    for (let i = 0; i < hotels.length; i++) {
-        allHotels.innerHTML += `
-        <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">${hotels[i].name}</h5>
-            <h6 class="card-title">${hotels[i].city}</h6>
-            <p class="card-text">${hotels[i].state}</p>
-            <p class="card-text">${hotels[i].rating}</p>
+const getAllEmployees = () => {
+    fetch(`${baseUrl}/employee`).then((response) => {
+        return response.json();
+    }).then((res) => {
+        authors = res.data;
+        updateEmployeeUI(res.data);
+        getAllHotels();
+    }).catch((error) => {
+        console.log(error);
+    })
+}
 
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
+const updateHotelUI = (data) => {
+    hotelTable.innerHTML = "";
+    console.log(data, "INCOMING VALUE");
+
+    for (let i = 0; i < data.length; i++) {
+        let employeeName = parseEmployeeName(data[i].employee, employees);
+        let id = data[i]._id;
+        bookTable.innerHTML += `
+            <tr>
+                <td>${data[i]._id}</td>
+                <td>${data[i].name}</td>
+                <td>${data[i].address}</td>
+                <td>${employeeName}</td>
+                <td><button class="btn btn-danger" onclick="deleteHotel('${id}')">Delete</button></td>
+            </tr>
         `
     }
 }
 
-getHotelInfo();
-getAllHotels();
+
+const deleteHotel = (hotelId) => {
+    fetch(`${baseUrl}/hotel/${hotelId}`, {
+        method: "DELETE"
+    }).then((response) => {
+        return response.json();
+    }).then((res) => {
+        getAllHotels();
+        alert(res.message);
+    }).catch((error) => {
+        console.log(error);
+    })
+}
+
+
+const parseEmployeeName = (employeeId, employeeList) => {
+    let employee = employeeList.find((author) => employee._id === employeeId);
+    return employee.name;
+}
+
+const getAllHotels = () => {
+    fetch(`${baseUrl}/hotel`).then((response) => {
+        return response.json();
+    }).then((res) => {
+        updateHotelUI(res.data);
+    }).catch((error) => {
+        console.log(error);
+    })
+}
+
+
+const updateEmployeeUI = (data) => {
+    for (let i = 0; i < data.length; i++) {
+        employeeList.innerHTML += `<option value=${data[i]._id}>${data[i].name}</option>`;
+    }
+}
+
+const selectedEmployee = (event) => {
+    newHotel.employee = event.target.value;
+}
+
+getAllEmployees();

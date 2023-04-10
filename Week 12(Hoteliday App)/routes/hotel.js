@@ -1,18 +1,22 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const HotelController = require('../controller/hotel')
+const HotelController = require('../controller/hotel');
 
-router.post('/', HotelController.getAllRoomTypes);
+// API's for BOOK ROUTES
+
+// Add a new Hotel
+router.post('/', HotelController.createHotel);
+
+// Get a hotel by ID
+router.get('/:id', HotelController.getHotelById);
 
 
-// router.put('/', HotelController.updateHotel);
+// Delete a hotel
+router.delete('/:id', HotelController.deleteHotel);
 
 
-// router.delete('/:id', HotelController.deleteHotel);
-
-
-// router.post('/', HotelController.createHotel);
-
+// Get All Hotels
+router.get('/', HotelController.getAllHotels);
 
 
 module.exports = router;
