@@ -9,6 +9,7 @@ const app = express();
 const userRoutes = require('./routes/user');
 const employeeRoutes = require('./routes/employee');
 const hotelRoutes = require('./routes/hotel')
+const searchRoutes = require('./routes/search')
 
 
 app.use(morgan('dev'));
@@ -38,6 +39,9 @@ app.use('/api/v1/employee', employeeRoutes);
 
 //Hotel
 app.use('/api/v1/hotel', hotelRoutes);
+
+//Guest Search
+//app.use('/api/v1/search', searchRoutes);
 
 
 app.listen(PORT, () => {
