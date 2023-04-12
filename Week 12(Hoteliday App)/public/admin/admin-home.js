@@ -46,7 +46,7 @@ const updateHotelUI = (data) => {
     console.log(data, "INCOMING VALUE");
 
     for (let i = 0; i < data.length; i++) {
-        let employeeName = parseEmployeeName(data[i].employee, employees);
+        let employeeName = addEmployeeName(data[i].employee, employees);
         let id = data[i]._id;
         bookTable.innerHTML += `
             <tr>
@@ -75,9 +75,8 @@ const deleteHotel = (hotelId) => {
 }
 
 
-const parseEmployeeName = (employeeId, employeeList) => {
-    let employee = employeeList.find((author) => employee._id === employeeId);
-    return employee.name;
+const addEmployeeName = (employeeId, employeeList) => {
+    
 }
 
 const getAllHotels = () => {
@@ -97,8 +96,5 @@ const updateEmployeeUI = (data) => {
     }
 }
 
-const selectedEmployee = (event) => {
-    newHotel.employee = event.target.value;
-}
 
 getAllEmployees();

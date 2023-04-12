@@ -2,18 +2,18 @@ const EmployeeModel = require('../models/employee');
 
 const createEmployee =  async (req, res) => {
     const incomingData = req.body;
-    console.log(incomingData, "INCOMING DATA");
-    const newAuthor = new EmployeeModel({
+    //console.log(incomingData, "INCOMING DATA");
+    const newEmployee = new EmployeeModel({
         name: incomingData.name,
         email: incomingData.email,
         contact: incomingData.contact
     })
 
     try {
-        const response = await newEmployee.save();
+        const newEmp = await newEmployee.save();
         res.status(201).json({
             message: "Employee Succesfully Created",
-            data: response
+            data: newEmp
         })
     } catch(error) {
         res.status(500).json({
@@ -73,7 +73,7 @@ const updateEmployee = async (req, res) => {
         const employeeData = await EmployeeModel.findByIdAndUpdate(id, incomingData, { returnOriginal: false });
         return res.status(200).json({
             message: `Succesfully Updated the Employee ${employeeData.name}`,
-            data: authorData
+            data: employeeData
         })
     } catch (error) {
         res.status(500).json({
